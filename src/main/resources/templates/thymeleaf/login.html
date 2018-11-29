@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900" 
+			th:href="@{https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900}"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/animate.css" th:href="@{/static/css/animate.css}"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/static/css/style.css}"/>
+	
+	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" th:href="@{https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js}"></script>
+	
+</head>
+<body>
+  <form th:action="@{/login}" method="post">
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo">Gestion de Stock <span>Prefecture</span></span></h1>
+		</div>
+		
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+			<div th:if="${param.error}" class="red">
+			votre authentification n'a pas été réussit
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" name="username" id="username">
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" name="password" id="password">
+			<br/>
+			<button type="submit">Sign In</button>
+			<br/>
+			<a href="#"><p class="small">Mot de pass oubliée ?</p></a>
+		</div>
+	</div>
+  </form>
+</body>
+<script type="application/javascript">
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+</html>
